@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<link rel="stylesheet" type="text/css" href="index.css">
+
+<h2>Theme Recommender</h2>
+<div class="editor-wrapper">
+    <span class="color-1">const</span> path <span class="color-1">=</span> require  <span class="color-2">('path');</span><br/>
+ <span class="color-1">const</span> <span class="color-2">{</span> execFileSync <span class="color-2">}</span> <span class="color-1">=</span> require  <span class="color-2">('child_process');</span><br/>
+  <br/>
+ <span class="color-1">const</span> script <span class="color-1">=</span>  <span class="color-2">path.</span>join <span class="color-2">(</span>__dirname <span class="color-1">, './packages.js');</span><br/>
+ <span class="color-1">const</span> packages  <span class="color-1">=</span>  <span class="color-3">execFileSync</span> <span class="color-2">('node', [script]).</span>toString <span class="color-2">();</span><br/>
+  <br/>
+JSON.parse <span class="color-2">(packages).</span>forEach <span class="color-2">((pkg)</span>  <span class="color-1">=></span> require< <span class="color-1">(pkg));</span><br/>
+  </div>
+</div>  
+  <h3>Love It? Rate It!<br></h3>
+  
+  <button class="star" id="star1">★</button>
+  <button class="star" id="star2">★</button>
+  <button class="star" id="star3">★</button>
+  <button class="star" id="star4">★</button>
+  <button class="star" id="star5">★</button>
+  
+  <h4>
+    Rate 20 more to see more of the same kind! 
+  </h4>
+ 	<div id="themes">
+ 		<div class="editor-wrapper" style="background:rgb(18, 37, 41)">
+    		<span class="color:rgb(174, 107, 248)">const</span> path <span class="color:rgb(174, 107, 248)">=</span> require  <span class="color: rgb(233, 252, 175)">('path');</span><br/>
+ <span class="color:rgb(174, 107, 248)">const</span> <span class="color: rgb(233, 252, 175)">{</span> execFileSync <span class="color: rgb(233, 252, 175)">}</span> <span class="color:rgb(174, 107, 248)">=</span> require  <span class="color: rgb(233, 252, 175)">('child_process');</span><br/>
+  <br/>
+ <span class="color:rgb(174, 107, 248)">const</span> script <span class="color:rgb(174, 107, 248)">=</span>  <span class="color: rgb(233, 252, 175)">path.</span>join <span class="color: rgb(233, 252, 175)">(</span>__dirname <span class="color:rgb(174, 107, 248)">, './packages.js');</span><br/>
+ <span class="color:rgb(174, 107, 248)">const</span> packages  <span class="color:rgb(174, 107, 248)">=</span>  <span class="color: rgb(249, 105, 249)">execFileSync</span> <span class="color: rgb(233, 252, 175)">('node', [script]).</span>toString <span class="color: rgb(233, 252, 175)">();</span><br/>
+  <br/>
+JSON.parse <span class="color: rgb(233, 252, 175)">(packages).</span>forEach <span class="color: rgb(233, 252, 175)">((pkg)</span>  <span class="color:rgb(174, 107, 248)">=></span> require< <span class="color:rgb(174, 107, 248)">(pkg));</span><br/>
+        </div>
+
+  <script type="text/javascript" src="index.js"></script>
+  <script src="https://unpkg.com/brain.js@1.1.2/browser.min.js"></script>
+</body>
+</html>
