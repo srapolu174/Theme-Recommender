@@ -1,3 +1,5 @@
+// front - end properties
+
 const editorWrapper = document.querySelector(".editor-wrapper")
 const KeyWords = document.querySelectorAll(".color-1")
 const SystemCommands = document.querySelectorAll(".color-2")
@@ -5,31 +7,31 @@ const Strings = document.querySelectorAll(".color-3")
 const stars = document.querySelectorAll(".star")
 const themes = document.getElementById("themes")
 
+
 window.localStorage.trainingData = window.localStorage.trainingData || JSON.stringify([])
+// The ratings which will be used as training data will be stored in the local storage, will be parsed with the command "stringify"
 
-
-// our current voting combination
+// colours for the text editor, setting one for each aspect
 const currentColors = {
   back: {},
   one: {},
   two: {},
   three: {},
 }
-// kick it off by creating a random theme for you to vote on
+
+generateRandomTheme() // A random theme is generated for you to vote.
 /* 
-  as you vote, saveTrainingData
-  - saves to localstorage
-  - runs predictThemeCombinations
+  as you vote, 
+  - data is saved to localstorage
 */
+
+predictThemeCombinations()
 /*
-  predictThemeCombinations
   - trains a neural network from your vote history
   - creates 100,000 random themes
   - runs the themes through the network, getting a score for each
   - sorts and returns the top 20 scored themes
 */   
-generateRandomTheme()
-predictThemeCombinations()
 
 stars.forEach((star, i) => {
   const score = i / 4
@@ -37,6 +39,11 @@ stars.forEach((star, i) => {
   star.addEventListener("mouseleave", clearStars)
   star.addEventListener("click", saveTrainingData.bind(saveTrainingData, score))
 })
+/*
+  - rating is done by selecting the number of stars
+  - once a rating is made, data is saved to training data 
+  - stars are cleared to accommodate the next rating
+*/ 
 
 function saveTrainingData(score) {
   const data = JSON.parse(window.localStorage.trainingData)
@@ -77,9 +84,11 @@ function predictThemeCombinations() {
   themes.innerHTML = ""
   const net = new brain.NeuralNetwork({activation: "leaky-relu"});
   const results = []
-
+// activation function
+  
   net.train(data)
-
+// training the network
+  
   for (let i = 0; i < 100000; i++) {
     const back = getRandomBackgroundRgb()
     const one = getRandomRgb()
@@ -120,7 +129,7 @@ function predictThemeCombinations() {
 
 
 
-// functions and methods I used above
+// functions and methods used above
 
 function addNewTheme({back, one, two, three, score}) {
   const newTheme = document.createElement("div")
