@@ -1,4 +1,4 @@
-// front - end properties
+// visuals (front - end properties)
 
 const editorWrapper = document.querySelector(".editor-wrapper")
 const KeyWords = document.querySelectorAll(".color-1")
@@ -19,7 +19,7 @@ const currentColors = {
   three: {},
 }
 
-generateRandomTheme() // A random theme is generated for you to vote.
+generateRandomTheme() // A random theme is generated for you to vote
 /* 
   as you vote, 
   - data is saved to localstorage
@@ -28,7 +28,7 @@ generateRandomTheme() // A random theme is generated for you to vote.
 predictThemeCombinations()
 /*
   - trains a neural network from your vote history
-  - creates 100,000 random themes
+  - creates 100,000 randomized themes
   - runs the themes through the network, getting a score for each
   - sorts and returns the top 20 scored themes
 */   
@@ -42,7 +42,7 @@ stars.forEach((star, i) => {
 /*
   - rating is done by selecting the number of stars
   - once a rating is made, data is saved to training data 
-  - stars are cleared to accommodate the next rating
+  - stars are restored to accommodate the next rating
 */ 
 
 function saveTrainingData(score) {
@@ -74,7 +74,7 @@ function saveTrainingData(score) {
   generateRandomTheme()
 }
 
-// once we have a good set of data, generate some color combinations!
+// once sufficient data is generated, color combinations are displayed!
 function predictThemeCombinations() {
   const data = JSON.parse(window.localStorage.trainingData)
   if (!data.length) {
@@ -129,7 +129,7 @@ function predictThemeCombinations() {
 
 
 
-// functions and methods used above
+// functions and methods called previously
 
 function addNewTheme({back, one, two, three, score}) {
   const newTheme = document.createElement("div")
