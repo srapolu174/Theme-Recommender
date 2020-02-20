@@ -8,17 +8,17 @@ body {
 }
 h1, h2, h3 {
   color:black;
-  font-weight: 195;
+  font-weight: 200;
 }
 h4 {
   color: black;
-  font-weight: 395;
+  font-weight: 400;
 }
 
 .predicted-theme {
   background: black;
   border:  1px solid white;
-  border-radius:  19px;
+  border-radius:  20px;
   display: inline-block;
   margin: 10px;
   padding: 10px;
